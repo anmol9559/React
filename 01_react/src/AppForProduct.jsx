@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import ProductsCard from './ProductsCard'
 
-const App = () => {
-  const products = [
+const AppForProduct = () => {
+  const [productsData, setProductsData] = useState(
     [
       {
         id: 1,
@@ -274,24 +275,20 @@ const App = () => {
           count: 145,
         },
       },
-    ],
-  ];
-  return (
-    <div className="p-4">
-      {products[0].map((product) => (
-        <div key={product.id} className="mb-4 border-b pb-3">
-          <h1 className="text-xl font-bold">{product.title}</h1>
-          <p className="text-gray-600">{product.description}</p>
-          <p className="text-gray-800 font-semibold">${product.price}</p>
-          <img
-            src={product.image}
-            alt={product.title}
-            className="mt-2 h-32 w-32 object-cover"
-          />
-        </div>
-      ))}
-    </div>
-  );
-};
+    ]
+); 
+  const deleteProduct = (id) => {
+    const filteredProducts = productsData.filter((elem) => elem.id !== id);
+    setProductsData(filteredProducts);
+  }
 
-export default App;
+  return (
+    <div className='flex flex-wrap gap-4 p-4'>
+       {
+        productsData.map((elem) => {return <ProductsCard key={elem.id} product={elem} del={deleteProduct}/>})
+       }
+    </div>
+  )
+}
+
+export default AppForProduct
