@@ -21,7 +21,7 @@ const App = () => {
   };
 
   return (
-    <div className="p-3 h-screen flex flex-col gap-4">
+    <div className="p-3 h-screen bg-gray-800 flex flex-col gap-4">
       <Navbar setToggle={setToggle} />
 
       {toggle ? (
