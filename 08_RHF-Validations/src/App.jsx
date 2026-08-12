@@ -8,7 +8,7 @@ const App = () => {
   const [users, setUsers] = useState([]);
 
   return (
-    <div className="p-3 h-screen flex flex-col gap-4">
+    <div className="p-3 h-screen flex flex-col gap-4 bg-black text-white">
       <Navbar setToggle={setToggle} />
 
       {toggle ? (
